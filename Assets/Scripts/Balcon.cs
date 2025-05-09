@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Balcon : MonoBehaviour
 {
-    [SerializeField] private Gameplay _gameplay;
+    [SerializeField] private Parameters _parameters;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Player") _gameplay.ShowUse(Gameplay.UseType.Balcon);
+        if (other.tag=="Player") _parameters.Gameplay.ShowUse(Gameplay.UseType.Balcon);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player") _gameplay.HideUse();
+        if (other.tag == "Player") _parameters.Gameplay.HideUse();
     }
 }

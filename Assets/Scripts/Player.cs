@@ -3,15 +3,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
-    [SerializeField] private float _speed = 5;
+    [SerializeField] private Parameters _parameters;
     private Vector3 _input;
     private bool _onStop=false;
+    private float _actualSpeed;
     private void Update()
     {
         if (_onStop) return;
         GatherInput();
         Look();
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            _actualSpeed = _parameters.PlayerRunSpeed;
+        }
+        else _actualSpeed = _parameters.PlayerSpeed;
     }
+
 
     public void StopPlayer()
     {
@@ -35,7 +42,7 @@ public class Player : MonoBehaviour
     {
         if (_input != Vector3.zero)
         {
-            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 0, 0));
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0, -45, 0));
             var skewedInput = matrix.MultiplyPoint3x4(_input);
 
             var relative = (transform.position + skewedInput) - transform.position;
@@ -48,7 +55,7 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
-        _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
+        _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _actualSpeed * Time.deltaTime);
 
     }
 

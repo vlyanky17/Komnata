@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Zerkalo : MonoBehaviour
 {
-    [SerializeField] private Gameplay _gameplay;
-
+    [SerializeField] private Parameters _parameters;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") _gameplay.ShowUse(Gameplay.UseType.Zercalo);
+        if (other.tag == "Player") _parameters.Gameplay.ShowUse(Gameplay.UseType.Zercalo);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player") _gameplay.HideUse();
+        if (other.tag == "Player") _parameters.Gameplay.HideUse();
     }
 }
