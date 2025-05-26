@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private Vector3 _input;
     private bool _onStop=false;
     private float _actualSpeed;
+    private Enemy _enemy;
     private void Update()
     {
         if (_onStop) return;
@@ -19,6 +20,21 @@ public class Player : MonoBehaviour
         else _actualSpeed = _parameters.PlayerSpeed;
     }
 
+    public void HitEnemy()
+    {
+        if (_enemy == null) return;
+        _enemy.GetHit();
+    }
+
+    public void SetEnemy(Enemy enemy)
+    {
+        _enemy = enemy;
+    }
+
+    public void DeleteEnemy()
+    {
+        _enemy = null;
+    }
 
     public void StopPlayer()
     {
