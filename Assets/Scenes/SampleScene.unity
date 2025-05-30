@@ -400,7 +400,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.2, y: 1, z: 0}
-  m_LocalScale: {x: 0.025, y: 1, z: 0.025}
+  m_LocalScale: {x: 0.02, y: 1, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2136205778}
@@ -967,7 +967,7 @@ MonoBehaviour:
   _target: {fileID: 667600744}
   _camera: {fileID: 330585545}
   _parameters: {fileID: 985950151}
-  smoothTime: 0
+  smoothTime: 1
 --- !u!1 &363188429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1627,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.025000002, y: 1, z: 0.025}
+  m_LocalScale: {x: 0.02, y: 1, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1514007033}
@@ -2204,8 +2204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2333ac3103215947b47c7c17499512a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerSpeed>k__BackingField: 3
-  <PlayerRunSpeed>k__BackingField: 6
+  <PlayerSpeed>k__BackingField: 10
+  <PlayerRunSpeed>k__BackingField: 15
   <Gameplay>k__BackingField: {fileID: 1286478234}
   <Player>k__BackingField: {fileID: 667600748}
   <ZercaloCamera>k__BackingField: {fileID: 1265838831}
@@ -2217,6 +2217,7 @@ MonoBehaviour:
   <MinScrollDistance>k__BackingField: 25
   <MaxScrollDistance>k__BackingField: 35
   <BaseEnemy>k__BackingField: {fileID: 363188435}
+  <ZoomSpeed>k__BackingField: 2
 --- !u!4 &985950152
 Transform:
   m_ObjectHideFlags: 0
@@ -5281,13 +5282,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136205777}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 147625793}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &2136205779
 ParticleSystemRenderer:
   serializedVersion: 6

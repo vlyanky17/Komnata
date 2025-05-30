@@ -28,7 +28,7 @@ public class IsometricCameraPanner : MonoBehaviour
     private float RecheckScroll(float scroll)
     {
         if (scroll == 0) return 0;
-        _scrollDistance = _camera.fieldOfView -= scroll;
+        _scrollDistance = _camera.fieldOfView -= scroll* _parameters.ZoomSpeed;
         if ((_scrollDistance < _maxScroll) && (_scrollDistance > _minScroll)) return scroll;
         return 0;
     }

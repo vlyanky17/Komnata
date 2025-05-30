@@ -63,11 +63,17 @@ public class Enemy : MonoBehaviour
     public void GetHit()
     {
         _parameters.Player.DeleteEnemy();
+        SplashParts();
+        var direction = transform.position- _parameters.Player.transform.position;
+        _particles.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+       // var a = transform.InverseTransformDirection(_parameters.Player.transform.position);
+        //Debug.Log(a);
+        //_particles.transform.eulerAngles =new Vector3(0,180,0);
         _particles.gameObject.SetActive(true);
         _particles.Play();
         gameObject.SetActive(false);
         _parameters.Gameplay.PlaceDecal(transform);
-        SplashParts();
+
     }
 
     private void SplashParts()
@@ -77,7 +83,7 @@ public class Enemy : MonoBehaviour
             _splashDir = transform.position - _parameters.Player.transform.position + new Vector3(Random.Range(-1.5f, 1.5f), 2, Random.Range(-1.5f, 1.5f));
             _splashDir = _splashDir * 3;
             _parts[i].gameObject.SetActive(true);
-            Debug.Log(_splashDir);
+            //Debug.Log(_splashDir);
             _parts[i].GetForceAtDirection(_splashDir);
         }
     }

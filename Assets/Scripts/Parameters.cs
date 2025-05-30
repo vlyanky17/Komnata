@@ -16,5 +16,6 @@ public class Parameters : MonoBehaviour
     [field: SerializeField] public float MinScrollDistance { get; private set; }
     [field: SerializeField] public float MaxScrollDistance { get; private set; }
     [field: SerializeField] public Enemy BaseEnemy { get; private set; }
+    [field: SerializeField] public float ZoomSpeed { get; private set; }
 
 }
