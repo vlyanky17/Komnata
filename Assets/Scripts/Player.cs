@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     {
         if (_onStop) return;
         GatherInput();
-        Look();
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _actualSpeed = _parameters.PlayerRunSpeed;
@@ -49,10 +48,12 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        Look();
     }
     void GatherInput()
     {
         _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        if (_input == Vector3.zero) _rb.linearVelocity = Vector3.zero;
     }
     void Look()
     {
@@ -64,15 +65,14 @@ public class Player : MonoBehaviour
             var relative = (transform.position + skewedInput) - transform.position;
             var rot = Quaternion.LookRotation(relative, Vector3.up);
 
-            transform.rotation = rot;
+            _rb.rotation = rot;
 
         }
 
     }
     private void Move()
     {
-        _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _actualSpeed * Time.deltaTime);
-
+        _rb.linearVelocity=(transform.forward * _input.magnitude * _actualSpeed);
     }
 
 }
